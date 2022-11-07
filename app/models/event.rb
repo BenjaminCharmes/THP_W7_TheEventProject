@@ -21,7 +21,7 @@ class Event < ApplicationRecord
     numericality: { only_integer: true, :in => 1..1000 }
 
   validates :location,
-    presence: true,
+    presence: true
 
   belongs_to :admin, foreign_key: 'admin_id', class_name: 'User'
 
