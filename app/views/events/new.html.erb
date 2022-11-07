@@ -1,0 +1,25 @@
+<h1>Bienvenue sur la page de création d'un événement !</h1><br>    
+
+<% if @event %>
+  <% if @event.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <p>Nous n'avons pas réussi à créer l'événement pour la (ou les) raison(s) suivante(s) :</p>
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+</div>
+<br/>
+
+<%= form_for(:event, url: events_path, html: { method: :post }) do |f| %>
+  Date de début: <%= f.text_field :start_date %><br/>
+  Durée: <%= f.text_field :duration %><br/>
+  Titre: <%= f.text_field :title %><br/>
+  Description: <%= f.text_field :description %><br/>
+  Prix: <%= f.text_field :price %><br/>
+  Lieu: <%= f.text_field :location %><br/>
+  <%= f.submit %>
+<% end %>

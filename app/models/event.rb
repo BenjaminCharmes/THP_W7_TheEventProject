@@ -6,13 +6,13 @@ class Event < ApplicationRecord
 
   validates :duration,
     presence: true,
-    numericality: { greater_than: 0,  }
+    numericality: { greater_than: 0 }
 
   validates :title,
     presence: true,
     length: { :in => 5..140 }
   
-  validates :descritpion,
+  validates :description,
     presence: true,
     length: { :in => 20..1000 }
 
@@ -27,6 +27,12 @@ class Event < ApplicationRecord
 
   has_many :attendances
   has_many :users, through: :attendances
+
+  def end_date
+    start_date + duration.minutes
+  end
+
+  private
 
   def duration_must_be_a_multiple_of_5
     unless (duration % 5) == 0

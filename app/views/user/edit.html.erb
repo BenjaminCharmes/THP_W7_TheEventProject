@@ -1,0 +1,22 @@
+<h1>Bienvenue sur la page de modification d'un utilisateur !</h1><br>    
+
+<% if @user %>
+  <% if @user.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <p>Nous n'avons pas réussi à créer l'utilisateur pour la (ou les) raison(s) suivante(s) :</p>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+</div>
+<br/>
+
+<%= form_for :user, url: user_path(@user), html: { method: :put } do |f| %>
+  Prénom: <%= f.text_field :first_name, :value => @user.first_name %><br/>
+  Nom: <%= f.text_field :last_name, :value => @user.last_name %><br/>
+  Description: <%= f.text_field :description, :value => @user.description %><br/>
+  <%= f.submit %>
+<% end %>
