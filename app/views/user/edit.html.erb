@@ -14,9 +14,28 @@
 </div>
 <br/>
 
-<%= form_for :user, url: user_path(@user), html: { method: :put } do |f| %>
-  Prénom: <%= f.text_field :first_name, :value => @user.first_name %><br/>
-  Nom: <%= f.text_field :last_name, :value => @user.last_name %><br/>
-  Description: <%= f.text_field :description, :value => @user.description %><br/>
-  <%= f.submit %>
-<% end %>
+<div class="text-center" style="padding: 15px">
+  <div class="form-signin w-50 m-auto">
+    <%= form_for :user, url: user_path(@user), html: { method: :put } do |f| %>
+
+      <div class="form-group">
+        <%= f.label 'Prénom:' %><br/>
+        <%= f.email_field :first_name, autofocus: true, autocomplete: "first_name", class: 'form-control text-center' %>
+      </div><br/>
+
+      <div class="form-group">
+        <%= f.label 'Nom:' %><br/>
+        <%= f.email_field :last_name, autofocus: true, autocomplete: "last_name", class: 'form-control text-center' %>
+      </div><br/>
+
+      <div class="form-group">
+        <%= f.label 'Description:' %><br/>
+        <%= f.email_field :description, autofocus: true, autocomplete: "description", class: 'form-control text-center' %>
+      </div><br/>
+
+      <div class="actions">
+        <%= f.submit "Créer l'événement", class: 'w-100 btn btn-lg btn-primary' %>
+      </div><br/>
+    <% end %>
+  </div>
+</div>
