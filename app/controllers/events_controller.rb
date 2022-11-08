@@ -23,8 +23,7 @@ class EventsController < ApplicationController
     if @new_event.save
       redirect_to @new_event
     else
-      @new_event.errors.full_messages.each { |e| puts e }
-      redirect_to new_event_path
+      render :new
     end
   end
 

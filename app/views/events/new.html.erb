@@ -1,25 +1,55 @@
-<h1>Bienvenue sur la page de création d'un événement !</h1><br>    
+<h1>Bienvenue sur la page de création d'un événement !</h1>   
 
-<% if @event %>
-  <% if @event.errors.any? %>
+<% if @new_event %>
+  <% if @new_event.errors.any? %>
   <div class="alert alert-danger" role="alert">
     <p>Nous n'avons pas réussi à créer l'événement pour la (ou les) raison(s) suivante(s) :</p>
     <ul>
-      <% @event.errors.full_messages.each do |message| %>
+      <% @new_event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
   <% end %>
 <% end %>
 </div>
-<br/>
 
-<%= form_for(:event, url: events_path, html: { method: :post }) do |f| %>
-  Date de début: <%= f.text_field :start_date %><br/>
-  Durée: <%= f.text_field :duration %><br/>
-  Titre: <%= f.text_field :title %><br/>
-  Description: <%= f.text_field :description %><br/>
-  Prix: <%= f.text_field :price %><br/>
-  Lieu: <%= f.text_field :location %><br/>
-  <%= f.submit %>
-<% end %>
+<div class="text-center" style="padding: 15px">
+  <div class="form-signin w-50 m-auto">
+    <%= form_for(:event, url: events_path, html: { method: :post }) do |f| %>
+
+      <div class="form-group">
+        <%= f.label 'Date de début:' %><br/>
+        <%= f.email_field :start_date, autofocus: true, autocomplete: "start_date", placeholder: "Date de début de l'événement", class: 'form-control text-center' %>
+      </div><br/>
+
+      <div class="form-group">
+        <%= f.label 'Durée:' %><br/>
+        <%= f.email_field :duration, autofocus: true, autocomplete: "duration", placeholder: "Durée de l'événement", class: 'form-control text-center' %>
+      </div><br/>
+
+      <div class="form-group">
+        <%= f.label 'Titre:' %><br/>
+        <%= f.email_field :title, autofocus: true, autocomplete: "title", placeholder: "Titre", class: 'form-control text-center' %>
+      </div><br/>
+
+      <div class="form-group">
+        <%= f.label 'Description:' %><br/>
+        <%= f.email_field :description, autofocus: true, autocomplete: "description", placeholder: "Description", class: 'form-control text-center' %>
+      </div><br/>
+
+      <div class="form-group">
+        <%= f.label 'Prix:' %><br/>
+        <%= f.email_field :price, autofocus: true, autocomplete: "price", placeholder: "Prix par personne", class: 'form-control text-center' %>
+      </div><br/>
+
+      <div class="form-group">
+        <%= f.label 'Lieu:' %><br/>
+        <%= f.email_field :location, autofocus: true, autocomplete: "location", placeholder: "Lieu  de l'événement", class: 'form-control text-center' %>
+      </div><br/>
+
+      <div class="actions">
+        <%= f.submit "Créer l'événement", class: 'w-100 btn btn-lg btn-primary' %>
+      </div><br/>
+    <% end %>
+  </div>
+</div>
