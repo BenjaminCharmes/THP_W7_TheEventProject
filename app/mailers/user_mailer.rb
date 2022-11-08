@@ -1,11 +1,11 @@
 class UserMailer < ApplicationMailer
 
-  default from: 'no-reply@the-event-project.fr'
+  default from: 'pifrupouteku-8331@yopmail.com'
 
   def welcome_email(user)
     @user = user 
 
-    @url  = 'http://monsite.fr/login' 
+    @url  = 'https://the-event-project.fly.dev/users/sign_in' 
 
     mail(to: @user.email, subject: 'Bienvenue chez nous !') 
   end
