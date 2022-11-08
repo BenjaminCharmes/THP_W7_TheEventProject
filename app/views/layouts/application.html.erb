@@ -14,9 +14,9 @@
 
   </head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
 
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-warning">
       <div class="container-fluid">
         <%= link_to "The Event Project", root_path, class: 'navbar-brand' %></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,18 +45,32 @@
               </ul>
             </li>
             <% if current_user %>
-              <li><%= button_to "Mon Profil", user_path(current_user), method: :get, class: 'dropdown-item' %></li>
-              <li><%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
+              <li class="nav-item">
+                <%= button_to "Mon Profil", user_path(current_user), method: :get, class: 'dropdown-item' %></li>
+              </li>
+              <li class="nav-item">
+                <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
+              </li>
             <% else %> 
-              <li><%= button_to "S'inscrire", new_user_registration_path, method: :get, class: 'dropdown-item' %></li>
-              <li><%= button_to "Se connecter", new_user_session_path, method: :get, class: 'dropdown-item' %></li>
+              <li class="nav-item">
+                <%= button_to "S'inscrire", new_user_registration_path, method: :get, class: 'dropdown-item' %></li>
+              </li>
+              <li class="nav-item">
+                <%= button_to "Se connecter", new_user_session_path, method: :get, class: 'dropdown-item' %></li>
+              </li>            
             <% end %>
           </ul>
         </div>
       </div>
     </nav>
 
-    <%= yield %>
+    <main style="padding: 15px">
+      <%= yield %>
+    </main>
+
+    <footer class="mt-auto text-center text-dark bg-warning" style="padding-top: 15px">
+      <p>🎉 The Event Project © 🎉</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
