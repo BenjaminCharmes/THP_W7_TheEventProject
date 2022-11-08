@@ -20,21 +20,21 @@
 
       <div class="form-group">
         <%= f.label 'Prénom:' %><br/>
-        <%= f.email_field :first_name, autofocus: true, autocomplete: "first_name", class: 'form-control text-center' %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: 'form-control text-center' %>
       </div><br/>
 
       <div class="form-group">
         <%= f.label 'Nom:' %><br/>
-        <%= f.email_field :last_name, autofocus: true, autocomplete: "last_name", class: 'form-control text-center' %>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: 'form-control text-center' %>
       </div><br/>
 
       <div class="form-group">
         <%= f.label 'Description:' %><br/>
-        <%= f.email_field :description, autofocus: true, autocomplete: "description", class: 'form-control text-center' %>
+        <%= f.text_field :description, autofocus: true, autocomplete: "description", class: 'form-control text-center' %>
       </div><br/>
 
       <div class="actions">
-        <%= f.submit "Créer l'événement", class: 'w-100 btn btn-lg btn-primary' %>
+        <%= f.submit "Modifier les informations", class: 'w-100 btn btn-lg btn-primary' %>
       </div><br/>
     <% end %>
   </div>
