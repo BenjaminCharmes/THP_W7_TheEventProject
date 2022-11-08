@@ -11,7 +11,7 @@
     <div class="card-body">
       <h5 class="card-title"><%= event.title %></h5>
       <p class="card-text">Organisé par: <%= link_to "#{event.admin.first_name}", user_path(event.admin.id) %></p>
-      <%= button_to "Voir cet événement", event_path(event.id), :method => "get" %>
+      <%= button_to "Voir cet événement", event_path(event.id), :method => "get", class: 'btn btn-dark' %>
     </div>
   </div>
   <hr/>
