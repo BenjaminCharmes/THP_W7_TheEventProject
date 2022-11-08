@@ -18,32 +18,39 @@
 
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" <%= link_to "The Event Project", root_path %></a>
+        <%= link_to "The Event Project", root_path, class: 'navbar-brand' %></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" <%= link_to "Accueil", root_path %></a>
+              <%= link_to "Accueil", root_path, class: 'nav-link'  %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" <%= link_to "Créer un événement", new_event_path %></a>
+              <%= link_to "Créer un événement", new_event_path, class: 'nav-link'  %>
             </li>
             <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" id='navbarDropdown' role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a href='#' class="nav-link dropdown-toggle" id='navbarDropdown' role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Profil
               </a>
               <ul class="dropdown-menu">
                 <% if current_user %>
-                  <li><a class="dropdown-item" <%= link_to "Mon profil", user_path(current_user.id) %></a></li>
-                  <li><a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path %></a></li>
+                  <li><%= button_to "Mon Profil", user_path(current_user), method: :get, class: 'dropdown-item' %></li>
+                  <li><%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
                 <% else %> 
-                  <li><a class="dropdown-item" <%= link_to "S'inscrire", new_user_registration_path %></a></li>
-                  <li><a class="dropdown-item" <%= link_to "Se connecter", new_user_session_path %></a></li>
+                  <li><%= button_to "S'inscrire", new_user_registration_path, method: :get, class: 'dropdown-item' %></li>
+                  <li><%= button_to "Se connecter", new_user_session_path, method: :get, class: 'dropdown-item' %></li>
                 <% end %>
               </ul>
             </li>
+            <% if current_user %>
+              <li><%= button_to "Mon Profil", user_path(current_user), method: :get, class: 'dropdown-item' %></li>
+              <li><%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
+            <% else %> 
+              <li><%= button_to "S'inscrire", new_user_registration_path, method: :get, class: 'dropdown-item' %></li>
+              <li><%= button_to "Se connecter", new_user_session_path, method: :get, class: 'dropdown-item' %></li>
+            <% end %>
           </ul>
         </div>
       </div>

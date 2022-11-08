@@ -11,12 +11,6 @@ class User < ApplicationRecord
     uniqueness: true,
     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
-  validates :first_name,
-    presence: true
-
-  validates :last_name,
-    presence: true
-
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
