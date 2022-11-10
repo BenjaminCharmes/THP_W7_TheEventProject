@@ -19,4 +19,12 @@
         <strong>Prix:</strong> <%= @event.price %>€
       </p>
     </div>
-</div>
+</div><br/>
+
+<% if current_user %>
+  <% unless current_user == @event.admin %>
+    <%= button_to "Rejoindre l'événement", new_attendance_path, method: :get, params: { event: @event }, class: 'btn btn-primary' %>
+  <% else %>
+    <%= button_to "Mon espace événement", attendance_index_path, method: :get, params: { event: @event }, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>

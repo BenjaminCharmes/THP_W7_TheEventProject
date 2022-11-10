@@ -1,11 +1,11 @@
-<h1>Bienvenue sur la page de création d'un événement !</h1>   
+<h1>Bienvenue sur la page d'édition d'un événement !</h1>   
 
-<% if @new_event %>
-  <% if @new_event.errors.any? %>
+<% if @event %>
+  <% if @event.errors.any? %>
   <div class="alert alert-danger" role="alert">
     <p>Nous n'avons pas réussi à créer l'événement pour la (ou les) raison(s) suivante(s) :</p>
     <ul>
-      <% @new_event.errors.full_messages.each do |message| %>
+      <% @event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
@@ -15,7 +15,7 @@
 
 <div class="text-center" style="padding: 15px">
   <div class="form-signin w-50 m-auto">
-    <%= form_for(:event, url: events_path, html: { method: :post }) do |f| %>
+    <%= form_for :event, url: event_path(@event), html: { method: :put } do |f| %>
 
       <div class="form-group">
         <%= f.label 'Date de début:' %><br/>
@@ -48,8 +48,10 @@
       </div><br/>
 
       <div class="actions">
-        <%= f.submit "Créer l'événement", class: 'w-100 btn btn-lg btn-primary' %>
+        <%= f.submit "Modifier l'événement", class: 'w-100 btn btn-lg btn-primary' %>
       </div><br/>
     <% end %>
   </div>
+  <%= button_to "Supprimer l'événement", event_path, method: :delete, class: 'btn btn-danger center' %></li>
 </div>
+

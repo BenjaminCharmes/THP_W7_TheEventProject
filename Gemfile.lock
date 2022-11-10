@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 05a5e1e811d693e64cc9e3067ca1affd826be96e
+  revision: 25d45f6b38360b071dca2ec1fbd0613d34bcd983
   branch: main
   specs:
     faker (3.0.0)
@@ -147,8 +147,6 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.9-x86_64-linux)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.4)
     public_suffix (5.0.0)
@@ -207,6 +205,7 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.1.1)
       railties (>= 6.0.0)
+    stripe (7.1.0)
     table_print (1.5.7)
     thor (1.2.1)
     timeout (0.3.0)
@@ -233,7 +232,6 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
-  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -252,6 +250,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  stripe
   table_print
   tzinfo-data
   web-console
